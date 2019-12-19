@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean name="helloSpring" class="com.jiangcl.spring.demo.HelloSpring">
+    <!--导入属性文件-->
+    <context:property-placeholder location="classpath:user.properties"/>
+    <bean id="user" class="com.jiangcl.spring.properties.User">
+        <property name="name" value="${name}"/>
+        <property name="age" value="${age}"/>
+        <property name="city" value="${city}"/>
+        <property name="phoneNum" value="${phoneNum}"/>
+    </bean>
+
+    <!--
+        class：bean的全类名，通过反射的方式在IOC容器中创建bean，所以要求bean中必须有无参的构造函数
+        id：bean的名称，id必须唯一
+    -->
+    <bean id="helloSpring" class="com.jiangcl.spring.demo.HelloSpring">
         <property name="name" value="Spring"></property>
     </bean>
+
+    <!--bean的作用域，默认值为singleton（单例的），调用一次构造器-->
+    <bean id="person" class="com.jiangcl.spring.demo.Person">
+        <property name="name" value="jiangcl"/>
+    </bean>
+
+    <!-- scope="prototype" 非单例-->
+    <bean id="person1" class="com.jiangcl.spring.demo.Person" scope="prototype">
+        <property name="name" value="张三"/>
+    </bean>
+
 </beans>

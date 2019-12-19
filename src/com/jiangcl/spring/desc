@@ -6,3 +6,35 @@ Spring
         4、容器，spring是一个容器，因为它包含并且管理应用对象的生命周期
         5、框架，spring实现了使用简单的组件配置组合成一个复杂的应用，在spring中可以使用xml和Java注解组合这些对象。
         6、一站式，在IOC和AOP的基础上可以整合各种企业应用的开源框架和优秀的第三方类库
+
+    spring属性注入的三种方式
+        1、属性注入，通过set(Object param)方法注入，<property name="name" value="Spring"></property>
+        2、构造器注入，通过有参数的构造器注入，<constructor-arg value="Spring"></constructor-arg>
+            使用构造器注入可以使用位置（index）或者参数类型（type）区分重载的构造器
+        3、工厂方法注入
+
+    Spring Bean的作用域
+        使用bean的scope属性配置bean的作用域
+        默认值为singleton，容器初始化时创建bean的实例，在整个容器的生命周期内只会存在一个实例
+        当scope="prototype"是，容器初始化时不会创建bean的实例，而是在每次调用getBean()方法时创建bean的实例，并返回
+        <bean id="helloSpring" class="com.jiangcl.spring.demo.HelloSpring" scope="singleton">
+                <property name="name" value="Spring"></property>
+        </bean>
+
+    IOC容器中Bean的生命周期
+        1、调用Bean的构造器，创建Bean的实例
+        2、为Bean的属性设值，以及其他Bean对它的引用
+        3、将Bean实例传递给Bean后置处理器的postProcessBeforeInitialization()方法
+        4、调用Bean的初始化方法
+        5、将Bean实例传递给Bean后置处理器的postProcessAfterInitialization()方法
+        6、使用Bean
+        7、当容器关闭时，调用了Bean的销毁方法
+
+            测试结果如下
+            constructor。。。
+            setName。。。
+            postProcessBeforeInitializationSpringCycle{name='jiangcl'}：cycle
+            init。。。
+            postProcessAfterInitializationSpringCycle{name='jiangcl'}：cycle
+            SpringCycle{name='jiangcl'}
+            destroy。。。

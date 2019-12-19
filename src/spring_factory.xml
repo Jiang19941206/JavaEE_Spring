@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--通过工厂方法配置Bean-->
+
+    <!--
+        1、使用静态工厂配置Bean（不会调用工厂类的构造器）
+            class：指向静态工厂的全类名
+            factory-method：指向静态工厂的静态方法名字
+            constructor-arg：如果指定的方法需要传入参数，则使用constructor-arg来配置参数
+    -->
+    <bean id="staticCar" class="com.jiangcl.spring.factory.CarStaticFactory"
+            factory-method="getCar">
+        <constructor-arg name="brand" value="audi"/>
+    </bean>
+
+
+    <!--
+        2、使用实例工厂配置Bean（会调用工厂类的构造器）
+            class：指向工厂的全类名，先配置一个工厂Bean
+            factory-bean：指向配置的工厂的bean
+            factory-method：指向工厂的方法名字
+            constructor-arg：如果指定的方法需要传入参数，则使用constructor-arg来配置参数
+    -->
+    <!-- 配置工厂的实例 -->
+    <bean id="beanFactory" class="com.jiangcl.spring.factory.InstanceCarFactory"></bean>
+
+    <!--通过工厂实例来配置目标Bean-->
+    <bean id="instanceCar" factory-bean="beanFactory" factory-method="getCar">
+        <constructor-arg name="brand" value="benz"/>
+    </bean>
+</beans>
