@@ -17,7 +17,7 @@ Spring
         使用bean的scope属性配置bean的作用域
         默认值为singleton，容器初始化时创建bean的实例，在整个容器的生命周期内只会存在一个实例
         当scope="prototype"是，容器初始化时不会创建bean的实例，而是在每次调用getBean()方法时创建bean的实例，并返回
-        <bean id="helloSpring" class="com.jiangcl.spring.demo.HelloSpring" scope="singleton">
+        <bean id="helloSpring" class="HelloSpring" scope="singleton">
                 <property name="name" value="Spring"></property>
         </bean>
 
@@ -38,3 +38,11 @@ Spring
             postProcessAfterInitializationSpringCycle{name='jiangcl'}：cycle
             SpringCycle{name='jiangcl'}
             destroy。。。
+
+    使用注解配置bean
+        在spring配置文件中声明<context:component-scan>:
+            basepackge属性指定一个需要扫描的基类包名；spring容器将会扫描这个基类包及其子包中的所有类
+            当需要扫描多个包时，可以使用逗号分隔
+            可以通过resource-pattern指定扫描的资源
+            context:exclude-filter子节点指定排除那些指定表达是的组件
+            context:include-filter子节点指定包含那些指定表达是的组件，改子节点需要use-default-filter配合使用

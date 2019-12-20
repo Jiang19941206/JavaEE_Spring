@@ -1,4 +1,4 @@
-package com.jiangcl.spring.demo;
+package com.jiangcl.spring.ioc.demo;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

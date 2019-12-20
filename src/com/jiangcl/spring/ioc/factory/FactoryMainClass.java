@@ -1,4 +1,4 @@
-package com.jiangcl.spring.factory;
+package com.jiangcl.spring.ioc.factory;
 
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -12,7 +12,7 @@ public class FactoryMainClass {
 
     @Test
     public void test1(){
-        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring_factory.xml");
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring-factory.xml");
         Car staticCar = (Car) ctx.getBean("staticCar");
         System.out.println(staticCar);
 

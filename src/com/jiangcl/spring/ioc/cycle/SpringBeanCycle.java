@@ -1,4 +1,4 @@
-package com.jiangcl.spring.cycle;
+package com.jiangcl.spring.ioc.cycle;
 
 /**
  * @author jiangcl

@@ -1,4 +1,4 @@
-package com.jiangcl.spring.demo;
+package com.jiangcl.spring.ioc.demo;
 
 /**
  * @author jiangcl

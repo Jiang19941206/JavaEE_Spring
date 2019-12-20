@@ -4,11 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                             http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="cycle" class="com.jiangcl.spring.cycle.SpringBeanCycle"
+    <bean id="cycle" class="com.jiangcl.spring.ioc.cycle.SpringBeanCycle"
           init-method="init" destroy-method="destroy">
         <property name="name" value="jiangcl"/>
     </bean>
 
     <!--配置bean的后置处理器：不需要配置id，IOC容器会自动识别是一个BeanPostProcessor-->
-    <bean class="com.jiangcl.spring.cycle.MyBeanPostProcessor"></bean>
+    <bean class="com.jiangcl.spring.ioc.cycle.MyBeanPostProcessor"></bean>
 </beans>

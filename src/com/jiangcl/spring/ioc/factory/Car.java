@@ -1,4 +1,4 @@
-package com.jiangcl.spring.factory;
+package com.jiangcl.spring.ioc.factory;
 
 /**
  * @author jiangcl

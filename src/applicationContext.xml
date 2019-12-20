@@ -9,7 +9,7 @@
 
     <!--导入属性文件-->
     <context:property-placeholder location="classpath:user.properties"/>
-    <bean id="user" class="com.jiangcl.spring.properties.User">
+    <bean id="user" class="com.jiangcl.spring.ioc.properties.User">
         <property name="name" value="${name}"/>
         <property name="age" value="${age}"/>
         <property name="city" value="${city}"/>
@@ -20,17 +20,17 @@
         class：bean的全类名，通过反射的方式在IOC容器中创建bean，所以要求bean中必须有无参的构造函数
         id：bean的名称，id必须唯一
     -->
-    <bean id="helloSpring" class="com.jiangcl.spring.demo.HelloSpring">
+    <bean id="helloSpring" class="com.jiangcl.spring.ioc.demo.HelloSpring">
         <property name="name" value="Spring"></property>
     </bean>
 
     <!--bean的作用域，默认值为singleton（单例的），调用一次构造器-->
-    <bean id="person" class="com.jiangcl.spring.demo.Person">
+    <bean id="person" class="com.jiangcl.spring.ioc.demo.Person">
         <property name="name" value="jiangcl"/>
     </bean>
 
     <!-- scope="prototype" 非单例-->
-    <bean id="person1" class="com.jiangcl.spring.demo.Person" scope="prototype">
+    <bean id="person1" class="com.jiangcl.spring.ioc.demo.Person" scope="prototype">
         <property name="name" value="张三"/>
     </bean>
 

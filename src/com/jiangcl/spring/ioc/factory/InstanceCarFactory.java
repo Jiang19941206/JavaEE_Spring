@@ -1,4 +1,4 @@
-package com.jiangcl.spring.factory;
+package com.jiangcl.spring.ioc.factory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +24,7 @@ public class InstanceCarFactory {
      * @author jiangcl
      * @date 2019/12/19
      * @param brand
-     * @return com.jiangcl.spring.factory.Car
+     * @return Car
      */
     public Car getCar(String brand){
         return map.get(brand);

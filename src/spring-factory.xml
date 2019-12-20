@@ -11,7 +11,7 @@
             factory-method：指向静态工厂的静态方法名字
             constructor-arg：如果指定的方法需要传入参数，则使用constructor-arg来配置参数
     -->
-    <bean id="staticCar" class="com.jiangcl.spring.factory.CarStaticFactory"
+    <bean id="staticCar" class="com.jiangcl.spring.ioc.factory.CarStaticFactory"
             factory-method="getCar">
         <constructor-arg name="brand" value="audi"/>
     </bean>
@@ -25,7 +25,7 @@
             constructor-arg：如果指定的方法需要传入参数，则使用constructor-arg来配置参数
     -->
     <!-- 配置工厂的实例 -->
-    <bean id="beanFactory" class="com.jiangcl.spring.factory.InstanceCarFactory"></bean>
+    <bean id="beanFactory" class="com.jiangcl.spring.ioc.factory.InstanceCarFactory"></bean>
 
     <!--通过工厂实例来配置目标Bean-->
     <bean id="instanceCar" factory-bean="beanFactory" factory-method="getCar">

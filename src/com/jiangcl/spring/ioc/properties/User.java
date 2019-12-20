@@ -1,4 +1,4 @@
-package com.jiangcl.spring.properties;
+package com.jiangcl.spring.ioc.properties;
 
 /**
  * @author jiangcl
