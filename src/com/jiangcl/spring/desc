@@ -98,3 +98,9 @@ Spring
             切面的优先级
                 当定义了多个切面时，可以使用@Order(int num)定义切面的优先级，值越小优先级越高
 
+    Spring事务
+        事务的传播行为：当前事物方法被另外一个事物方法调用时如何使用事务。
+                    默认为：REQUIRED
+        参考网址：https://www.cnblogs.com/alimayun/p/10933289.html
+
+
