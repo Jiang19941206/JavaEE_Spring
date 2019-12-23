@@ -1,15 +1,12 @@
-package com.jiangcl.spring.aop.demo;
-
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+package com.jiangcl.spring.aop.aopconfig;
 
 /**
  * @author jiangcl
- * @date 2019/12/20
- * @desc 实现类
+ * @date 2019/12/23
+ * @desc
  */
-@Service("calculator")
-public class CalculatorImpl implements Calculator {
+public class ConfigCalImpl implements ConfigCal {
+
     @Override
     public int add(int i, int j) {
         System.out.println("the add result is ：" + (i + j));

@@ -8,9 +8,36 @@
                             http://www.springframework.org/schema/context/spring-context.xsd
                             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+        <!--1、使用注解配置AOP-->
         <!--配置自动扫描-->
-        <context:component-scan base-package="com.jiangcl.spring.aop.demo"/>
+        <context:component-scan base-package="com.jiangcl.spring.aop.annotation"/>
 
         <!--是aspectj注解起作用，自动为匹配的生成代理对象-->
         <aop:aspectj-autoproxy/>
+
+        <!--2、使用配置文件配置AOP-->
+        <!--配置实现类bean-->
+        <bean id="configCal" class="com.jiangcl.spring.aop.aopconfig.ConfigCalImpl"/>
+
+        <!--配置切面bean-->
+        <bean id="configAspect" class="com.jiangcl.spring.aop.aopconfig.ConfigAspect"/>
+
+        <!--配置AOP-->
+        <aop:config>
+                <!--配置切点表达式-->
+                <aop:pointcut id="pointcut" expression="execution(* com.jiangcl.spring.aop.aopconfig.*.*(..))"/>
+                <!--配置切面及通知-->
+                <aop:aspect ref="configAspect">
+                        <aop:before method="before" pointcut-ref="pointcut"/>
+                        <aop:after method="after" pointcut-ref="pointcut"/>
+                        <aop:after-returning method="afterReturning" pointcut-ref="pointcut" returning="result"/>
+                        <aop:after-throwing method="afterThrowing" pointcut-ref="pointcut" throwing="e"/>
+                </aop:aspect>
+                <!--
+                当有多个切面时，就分别配置多组aspect，并可以使用order定义各个切面的优先级，值越小，优先级越高
+                <aop:aspect ref="configAspect" order="1">
+
+                </aop:aspect>
+                -->
+        </aop:config>
 </beans>

@@ -1,7 +1,5 @@
-package com.jiangcl.spring.aop.demo;
+package com.jiangcl.spring.aop.annotation;
 
-import com.jiangcl.spring.ioc.annotation.repository.UserRepository;
-import com.jiangcl.spring.ioc.annotation.repository.UserRepositoryImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -9,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * @author jiangcl
  * @date 2019/12/20
- * @desc
+ * @desc 基于注解的方式配置AOP
  */
 public class MyAspectJTest {
 

@@ -1,11 +1,11 @@
-package com.jiangcl.spring.aop.demo;
+package com.jiangcl.spring.aop.aopconfig;
 
 /**
  * @author jiangcl
- * @date 2019/12/20
- * @desc 定义一个用于运算的接口
+ * @date 2019/12/23
+ * @desc
  */
-public interface Calculator {
+public interface ConfigCal {
 
     /**
      * 加
@@ -34,5 +34,4 @@ public interface Calculator {
      * @param j
      */
     void div(int i,int j);
-
 }

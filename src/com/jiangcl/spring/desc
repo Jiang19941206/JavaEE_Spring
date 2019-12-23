@@ -73,6 +73,20 @@ Spring
                     异常通知
                     环绕通知（不常用）
                     执行顺序（前置通知——>后置通知——>异常通知（当有异常时）——>返回通知）
+                        前置通知：the mul method is begins。。。the args is：[3, 3]
+                        the mul result is ：9
+                        后置通知：the mul method is over
+                        返回通知：the result of mul is：null
+
+                    定义切入点表达式：
+                        execution(返回值类型 包名.类名.方法名(参数类型列表))
+
+                        下面以前置通知为例
+                        @Before("execution(* com.jiangcl.spring.aop.annotation.Calculator.*(int,int))")
+                        public void method(){}
+
+                        切入点表达式可以指定到包
+                        execution(* com.jiangcl.spring.aop.annotation.*.*(..))
 
                 4、可以在声明的通知方法中声明一个JoinPoint类型的参数，然后通过该参数就能访问链接细节，比如方法名称和参数信息等
                         JoinPoint
@@ -81,4 +95,6 @@ Spring
                          java.lang.Object getTarget() ：获取连接点所在的目标对象；
                          java.lang.Object getThis() ：获取代理对象本身；
                         参考网址：https://blog.csdn.net/qq_33535433/article/details/79940747
+            切面的优先级
+                当定义了多个切面时，可以使用@Order(int num)定义切面的优先级，值越小优先级越高
 

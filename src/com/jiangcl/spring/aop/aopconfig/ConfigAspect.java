@@ -1,20 +1,15 @@
-package com.jiangcl.spring.aop.demo;
+package com.jiangcl.spring.aop.aopconfig;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.*;
-import org.springframework.stereotype.Component;
-
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author jiangcl
- * @date 2019/12/20
- * @desc 声明一个切面类，需要将此类放入IOC容器中
+ * @date 2019/12/23
+ * @desc
  */
-@Aspect
-@Component
-public class MyAspectJ {
+public class ConfigAspect {
 
     /**
      * @desc 声明一个前置通知：在目标方法开始之前执行
@@ -23,11 +18,10 @@ public class MyAspectJ {
      * @param joinPoint
      * @return void
      */
-    @Before("execution(* com.jiangcl.spring.aop.demo.Calculator.*(int,int))")
     public void before(JoinPoint joinPoint){
         List<Object> args = Arrays.asList(joinPoint.getArgs());
         String name = joinPoint.getSignature().getName();
-        System.out.println("the " + name + " method is begins。。。the args is：" + args.toString());
+        System.out.println("前置通知：the " + name + " method is begins。。。the args is：" + args.toString());
     }
 
     /**
@@ -37,10 +31,9 @@ public class MyAspectJ {
      * @param joinPoint
      * @return void
      */
-    @After("execution(* com.jiangcl.spring.aop.demo.Calculator.*(int,int))")
     public void after(JoinPoint joinPoint){
         String name = joinPoint.getSignature().getName();
-        System.out.println("the " + name + " method is over");
+        System.out.println("后置通知：the " + name + " method is over");
 
     }
 
@@ -57,10 +50,9 @@ public class MyAspectJ {
      * @param result
      * @return void
      */
-    @AfterReturning(value = "execution(* com.jiangcl.spring.aop.demo.Calculator.*(int,int))",returning = "result")
-    public void AfterReturning(JoinPoint joinPoint,Object result){
+    public void afterReturning(JoinPoint joinPoint,Object result){
         String name = joinPoint.getSignature().getName();
-        System.out.println("the result of " + name + " is：" + result);
+        System.out.println("返回通知：the result of " + name + " is：" + result);
         System.out.println("**********************");
     }
 
@@ -75,11 +67,8 @@ public class MyAspectJ {
      * @param e
      * @return void
      */
-    @AfterThrowing(value = "execution(* com.jiangcl.spring.aop.demo.Calculator.*(int,int))",throwing = "e")
     public void afterThrowing(JoinPoint joinPoint,Exception e){
         String name = joinPoint.getSignature().getName();
-        System.out.println("the methd " + name + " occur Exception " + e);
+        System.out.println("异常通知：the methd " + name + " occur Exception " + e);
     }
-
-
 }
