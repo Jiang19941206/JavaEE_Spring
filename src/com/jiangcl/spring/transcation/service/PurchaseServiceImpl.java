@@ -49,4 +49,11 @@ public class PurchaseServiceImpl implements PurchaseService {
             throw new StockException("库存不足！");
         }
     }
+
+    @Override
+    public int getInfo() {
+        purchaseDao.getUserRemaining(1);
+        purchaseDao.getBookCount(1);
+        return 1;
+    }
 }

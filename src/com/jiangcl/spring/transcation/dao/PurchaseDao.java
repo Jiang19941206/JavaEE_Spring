@@ -1,5 +1,7 @@
 package com.jiangcl.spring.transcation.dao;
 
+import com.jiangcl.spring.transcation.annotation.ResultValue;
+
 /**
  * @author jiangcl
  * @date 2019/12/23
@@ -29,7 +31,7 @@ public interface PurchaseDao {
      * @param id
      * @return int
      */
-    int getBookCount(int id);
+    int getBookCount(Integer id);
 
     /**
      * @desc 获取账户余额
@@ -38,5 +40,5 @@ public interface PurchaseDao {
      * @param userId
      * @return int
      */
-    int getUserRemaining(int userId);
+    int getUserRemaining(Integer userId);
 }

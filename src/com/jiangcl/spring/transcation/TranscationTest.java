@@ -20,4 +20,15 @@ public class TranscationTest {
         System.out.println("********** 执行结束 **********");
     }
 
+    /**
+     * 使用注解操作dao的返回值
+     */
+    @Test
+    public void test2(){
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-transcation.xml");
+        PurchaseService purchaseService = (PurchaseService) ctx.getBean("purchaseService");
+        int info = purchaseService.getInfo();
+        System.out.println(info);
+    }
+
 }

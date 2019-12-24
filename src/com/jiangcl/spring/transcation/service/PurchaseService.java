@@ -17,4 +17,6 @@ public interface PurchaseService {
      * @return void
      */
     void purchaseBook(int bookId, int userId, int bookNum);
+
+    int getInfo();
 }

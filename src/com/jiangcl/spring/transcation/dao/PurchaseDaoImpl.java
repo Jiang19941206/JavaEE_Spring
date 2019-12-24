@@ -1,5 +1,6 @@
 package com.jiangcl.spring.transcation.dao;
 
+import com.jiangcl.spring.transcation.annotation.ResultValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,17 +28,19 @@ public class PurchaseDaoImpl implements PurchaseDao {
         jdbcTemplate.update(sql);
     }
 
+    @ResultValue("book")
     @Override
-    public int getBookCount(int id) {
+    public int getBookCount(Integer id) {
         String sql = "SELECT count FROM book WHERE id = " + id;
-        Integer count = jdbcTemplate.queryForObject(sql, int.class);
+        Integer count = jdbcTemplate.queryForObject(sql, Integer.class);
         return count;
     }
 
+    @ResultValue("user")
     @Override
-    public int getUserRemaining(int userId) {
+    public int getUserRemaining(Integer userId) {
         String sql = "SELECT remaining FROM `user` WHERE userId = " + userId;
-        Integer count = jdbcTemplate.queryForObject(sql, int.class);
+        Integer count = jdbcTemplate.queryForObject(sql, Integer.class);
         return count;
     }
 }
